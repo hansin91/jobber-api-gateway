@@ -1,5 +1,6 @@
 import { authController } from '@gateway/controllers/auth/auth';
 import { passwordController } from '@gateway/controllers/auth/password';
+import { seedController } from '@gateway/controllers/auth/seed';
 import express, { Router } from 'express';
 
 class AuthRoutes {
@@ -16,6 +17,7 @@ class AuthRoutes {
     this.router.put('/auth/forgot-password', passwordController.forgotPassword);
     this.router.put('/auth/reset-password/:token', passwordController.resetPassword);
     this.router.put('/auth/change-password', passwordController.changePassword);
+    this.router.put('/auth/seed/:count', seedController.create);
     return this.router;
   }
 }
